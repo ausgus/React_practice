@@ -1,7 +1,6 @@
 import { useState } from 'react';
 import CoffeeArt from './CoffeeArt.jsx';
 
-const categories = ['전체', '커피', '논커피', '디저트'];
 
 const menuItems = [
 {
@@ -68,6 +67,9 @@ const menuItems = [
     type: 'latte',
   },
 ];
+
+const categories = ['전체', ...new Set(menuItems.map(item => item.category))];
+
 
 function MenuCard({ item }){
     return(
